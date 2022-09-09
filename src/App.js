@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Frase from './components/Frase'
 import styled from "@emotion/styled";
 
@@ -36,6 +36,11 @@ function App() {
     const frase = await API.json();
     guardarFrase(frase[0]);
   }
+
+
+  useEffect( () => {
+    consultarAPI();
+  }, []);
 
   return (
     <Contenedor>
